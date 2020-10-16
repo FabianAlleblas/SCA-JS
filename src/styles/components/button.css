@@ -1,0 +1,21 @@
+.button {
+  background-color: var(--darkorange);
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 12px 0;
+  width: 100%;
+}
+
+.btn-200 {
+  width: 200px;
+}
+
+.plain {
+  background-color: white;
+  box-shadow: none;
+  color: var(--darkblue);
+  width: 100%;
+}

@@ -1,0 +1,66 @@
+.graph__heading,
+.energy__heading {
+  color: var(--darkblue);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.graph__tag {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.graph__tag-item1 {
+  background-color: var(--darkblue);
+  border-radius: 3px;
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+  padding: 0 8px;
+}
+
+.graph__tag-item2 {
+  background-color: var(--ultralightorange);
+  border-radius: 3px;
+  color: var(--darkorange);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+  padding: 0 8px;
+}
+
+.energy__rating-item {
+  background-color: var(--darkorange);
+  border-radius: 5px;
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 700;
+  padding: 12px 0;
+  position: relative;
+  text-align: center;
+}
+
+.mid1 {
+  background-color: var(--midorange);
+}
+
+.mid2 {
+  background-color: var(--lightorange);
+  color: var(--darkorange);
+}
+
+.low {
+  background-color: var(--ultralightorange);
+  color: var(--darkorange);
+}
+
+.energy__rating-item:after {
+  content: '';
+  display: block;
+  height: 80px;
+  left: 0;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+}
