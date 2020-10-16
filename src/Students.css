@@ -1,28 +1,28 @@
-.students__heading {
+.Students__heading {
   color: var(--darkblue);
   font-size: 14px;
   font-weight: 600;
 }
 
-.students__list {
+.Students__list {
   border-radius: 6px;
   border: 1px solid var(--lightblue);
   position: relative;
 }
 
-.students__pairing::after {
-  content: url(../../img/Plus.svg);
+.Students__pairing::after {
+  content: url(./assets/Plus.svg);
   height: 20px;
   left: calc(50% - 10px);
   position: absolute;
   top: calc(50% - 10px);
 }
 
-.students__list > li:not(:first-child) {
+.Students__list > li:not(:first-child) {
   border-top: 1px solid var(--lightblue);
 }
 
-.students__list > li {
+.Students__list > li {
   color: var(--midblue);
   font-size: 16px;
   font-weight: 600;
@@ -30,7 +30,7 @@
   text-align: center;
 }
 
-.students__list > *:last-child:after {
+.Students__list > *:last-child:after {
   content: '';
   display: block;
   height: 80px;
