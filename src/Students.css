@@ -10,8 +10,8 @@
   position: relative;
 }
 
-.Students__pairing::after {
-  content: url(./assets/Plus.svg);
+.Students__pairing svg {
+  /* content: url(./assets/Plus.svg); */
   height: 20px;
   left: calc(50% - 10px);
   position: absolute;
