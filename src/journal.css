@@ -1,48 +1,48 @@
-.journal-card {
+.Journal-card {
   border-radius: 6px;
   position: relative;
 }
 
-.journal-card__heading {
+.Journal-card__heading {
   color: var(--darkblue);
   font-size: 14px;
   font-weight: 600;
   text-transform: uppercase;
 }
 
-.journal-card__sub-heading {
+.Journal-card__sub-heading {
   color: var(--midblue);
   font-size: 12px;
   font-weight: 400;
 }
 
-.journal-card__rating {
+.Journal-card__rating {
   display: flex;
 }
 
-.journal-card__rating > li {
+.Journal-card__rating > li {
   margin-right: 20px;
 }
 
-.journal-card__comprehension {
+.Journal-card__comprehension {
   display: flex;
   justify-content: space-between;
 }
 
-.journal-card__motto {
+.Journal-card__motto {
   font-size: 16px;
   font-weight: 600;
   color: var(--darkblue);
 }
 
-.journal-card__notes {
+.Journal-card__notes {
   color: var(--darkblue);
   font-size: 14px;
   font-weight: 400;
   line-height: 1.5;
 }
 
-.journal-card:last-child:after {
+.Journal-card:last-child:after {
   content: '';
   display: block;
   height: 80px;
