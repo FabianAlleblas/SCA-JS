@@ -1,5 +1,5 @@
-@import './color.css';
-@import './basic.css';
-@import './spacing.css';
-@import './utility.css';
-@import './shadows.css';
+@import './basic-styles/color.css';
+@import './basic-styles/basic.css';
+@import './basic-styles/spacing.css';
+@import './basic-styles/utility.css';
+@import './basic-styles/shadows.css';
