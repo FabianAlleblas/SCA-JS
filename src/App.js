@@ -28,27 +28,32 @@ const navItems = [
     {
         path: 'dashboard',
         component: Dashboard({target: el, hidden: false }),
-        icon: DashboardIcon
+        icon: DashboardIcon,
+        title: '',
     },
     {
         path: 'buddys',
         component: Buddy({target: el, hidden: true }),
-        icon: BuddyIcon
+        icon: BuddyIcon,
+        title: '',
     },
     {
         path: 'teams',
         component: Teams({target: el, hidden: true }),
-        icon: TeamIcon
+        icon: TeamIcon,
+        title: '',
     },
     {
         path: 'energy',
         component: Energy({target: el, hidden: true }),
-        icon: EnergyIcon
+        icon: EnergyIcon,
+        title: '',
     },
     {
         path: 'journal',
         component: Journal({target: el, hidden: true }),
-        icon: JournalIcon
+        icon: JournalIcon,
+        title: '',
     },
     
     ]
@@ -58,7 +63,14 @@ Buddy({ target: el })
 Energy({ target: el })
 Journal({ target: el }) */
 JournalForm( {target: el })
-Navigation( {target: el, navItems })
+Navigation( {target: el, navItems, onNavigate: handleNavigate })
+
+function handleNavigate(path) {
+    const newNavItem = navItems.find((navItem) => navItem.path === path)
+    //header.update(newNavItem.title)
+    navItems.forEach((navItem) =>
+    navItem === newNavItem ? navItem.component.show() : navItem.component.hide())
+}
 
 
 }
