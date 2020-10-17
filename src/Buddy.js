@@ -3,7 +3,7 @@ import './Students.css'
 import Plus from './assets/Plus.svg'
 
 export default function Buddy({ target }){
-    const el = createElement({ type: 'main', className: 'main-scrolling scrolling-80 p-3 grid-20', target })
+    const el = createElement({ type: 'main', className: 'main-scrolling scrolling-80 p-3 grid-20 hidden', target })
     pairList({ student1: 'Sudanka Bakalowits', student2: 'Yasaman Foroutan' })
     pairList({ student1: 'Sudanka Bakalowits', student2: 'Yasaman Foroutan' })
     pairList({ student1: 'Sudanka Bakalowits', student2: 'Yasaman Foroutan' })
