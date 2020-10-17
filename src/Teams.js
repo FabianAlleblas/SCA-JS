@@ -34,12 +34,15 @@ export default function Teams({ target, dashBoardMode = false }){
    }
  ]
 
- studentTeamList.forEach((team, index) => teamList({ team, index })) 
+ const firstTeamList = studentTeamList.slice(0,1)
+ const listTeams = dashBoardMode ? firstTeamList : studentTeamList
+ 
+ listTeams.forEach((team, index) => teamList({ team, index })) 
  
  function teamList ({ index, team }){
    const studentCard = createElement({ type: 'section', target: el })
    const studentsHeading = createElement({ type: 'h3', className: 'Students__heading mb-1', target: studentCard})
-   studentsHeading.textContent = 'Team ' + ++index
+   studentsHeading.textContent = dashBoardMode ? 'Your Current Team' : 'Team ' + ++index
    const studentsList = createElement({ type: 'ul', className: 'Students__list', target: studentCard})
    const teamStudentNames = Object.values(team)
    teamStudentNames.forEach(member => {
