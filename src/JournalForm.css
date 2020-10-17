@@ -32,6 +32,10 @@
   resize: none;
 }
 
+textarea.Journal-form__input {
+  height: 125px;
+}
+
 .Journal-form__button-wrapper {
   grid-template-columns: 1fr 1fr;
 }
