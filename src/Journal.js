@@ -4,7 +4,8 @@ import Button from './Buttons'
 import RatingStar from './assets/Star.svg'
 import RatingComprehension from './assets/Rectangle.svg'
 
-export default function Journal({ target }){
+export default function Journal({ target, hidden = true }){
+    
     const el = createElement({ type: 'main', className: 'main-scrolling p-3 grid-20', target})
     const buttonWrapper = createElement({ type: 'section', className: 'center', target: el})
     Button({ text: 'Rate Today ⭑', className: 'button btn-200 shadow-orange' ,target: buttonWrapper })
@@ -53,4 +54,19 @@ function journalCard(){
     }
 
 }
+
+
+hidden && hide()
+
+function show() {
+    el.classList.remove('hidden')
+}
+
+function hide() {
+    el.classList.add('hidden')
+}
+
+return {show, hide}
+
+
 }

@@ -32,14 +32,10 @@
   color: var(--midblue);
 }
 
-.Navigation__icon {
+.Navigation__link svg {
   height: 20px;
 }
-.Navigation__icon:hover {
-  cursor: pointer;
-}
 
-.Navigation__icon:hover,
 .Navigation__link--active {
   color: var(--darkblue);
 }

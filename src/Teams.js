@@ -1,7 +1,7 @@
 import createElement from './createElement'
 import './Students.css'
 
-export default function Teams({ target, dashBoardMode = false }){
+export default function Teams({ target, dashBoardMode = false, hidden = false }){
  const el = dashBoardMode ? target : createElement({ type: 'main', className: 'main-scrolling scrolling-80 p-3 grid-30', target })
  const studentTeamList = [
    {
@@ -50,4 +50,17 @@ export default function Teams({ target, dashBoardMode = false }){
    studentListItem.textContent = member
       })
    }
+
+   hidden && hide()
+
+function show() {
+    el.classList.remove('hidden')
+}
+
+function hide() {
+    el.classList.add('hidden')
+}
+
+return {show, hide}
+
 }

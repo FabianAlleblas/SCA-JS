@@ -4,7 +4,7 @@ import RatingStar from './assets/star_outline.svg'
 import ComprehensionLevel from './assets/rectangle_outline.svg'
 import Button from './Buttons'
 
-export default function JournalForm({ target }) {
+export default function JournalForm({ target, hidden = true }) {
    const el = createElement({ type: 'main', className: 'main-scrolling p-3', target})
    const journalForm = createElement({ type: 'form', className: 'Journal-form', target: el })
    const heading = createElement({ type: 'h3', className: 'Journal-form__heading mb-3', target: journalForm})
@@ -58,6 +58,20 @@ export default function JournalForm({ target }) {
         journalSubheading.textContent = text
         return (journalSubheading)
 }
+
+hidden && hide()
+
+function show() {
+    el.classList.remove('hidden')
+}
+
+function hide() {
+    el.classList.add('hidden')
+}
+
+return {show, hide}
+
+
 }
 
 

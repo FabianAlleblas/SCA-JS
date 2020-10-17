@@ -23,13 +23,13 @@ export default function App({ target }) {
     const el = createElement({ className: 'App' })
 
 
-const navMappings = [
+const navItems = [
 
-    /* {
-        path: 'Dashboard',
-        component: Dashboard({target: el, hidden: false })
+    {
+        path: 'dashboard',
+        component: Dashboard({target: el, hidden: false }),
         icon: DashboardIcon
-    }, */
+    },
     {
         path: 'buddys',
         component: Buddy({target: el, hidden: true }),
@@ -37,28 +37,29 @@ const navMappings = [
     },
     {
         path: 'teams',
-        component: Teams({target: el, hidden: false }),
+        component: Teams({target: el, hidden: true }),
         icon: TeamIcon
     },
     {
         path: 'energy',
-        component: Energy({target: el, hidden: false }),
+        component: Energy({target: el, hidden: true }),
         icon: EnergyIcon
     },
     {
         path: 'journal',
-        component: Journal({target: el, hidden: false }),
+        component: Journal({target: el, hidden: true }),
         icon: JournalIcon
     },
     
     ]
-
 
 /* Teams({ target: el })
 Buddy({ target: el })
 Energy({ target: el })
 Journal({ target: el }) */
 JournalForm( {target: el })
-Navigation( {target: el })
+Navigation( {target: el, navItems })
+
+
 }
 
