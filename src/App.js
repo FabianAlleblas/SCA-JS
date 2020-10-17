@@ -10,6 +10,7 @@ import Journal from './Journal'
 // import JournalForm from './JournalForm'
 import Teams from './Teams'
 import Buddy from './Buddy'
+import Dashboard from './Dashboard'
 
 export default function App({ target }) {
     const el = createElement({ className: 'App' })
@@ -17,4 +18,5 @@ export default function App({ target }) {
 Teams({ target: el })
 Buddy({ target: el })
 Journal({ target: el })
+Dashboard({ target: el })
 }
