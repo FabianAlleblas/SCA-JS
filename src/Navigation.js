@@ -8,11 +8,19 @@ const navBar = createElement({ type: 'nav', className: 'Navigation', target: el}
 
 navItems.forEach((navItem) => {
 
-const btn = createElement({type: 'button', target: navBar, className: 'Navigation__link Navigation__link--active w-100' })
+const btn = createElement({ type: 'button', target: navBar, className: 'Navigation__link w-100' })
 btn.innerHTML = navItem.icon
-btn.addEventListener('click', () => onNavigate(navItem.path))
-} )
+btn.addEventListener('click', (event) => {
+    onNavigate(navItem.path)
+    activateButton(event)
+})
+
+function activateButton(event){
+    const buttonSelector = navBar.querySelectorAll('button')
+    buttonSelector.forEach((button) => button === event.currentTarget ? button.classList.add('Navigation__link--active') : button.classList.remove('Navigation__link--active'))
+}
+
+})
 
 return {}
-
 }

@@ -34,7 +34,6 @@
 
 .Navigation__link svg {
   height: 20px;
-  color: var(--midblue);
 }
 
 .Navigation__link--active {

@@ -58,10 +58,6 @@ const navItems = [
     
     ]
 
-/* Teams({ target: el })
-Buddy({ target: el })
-Energy({ target: el })
-Journal({ target: el }) */
 JournalForm( {target: el })
 Navigation( {target: el, navItems, onNavigate: handleNavigate })
 
@@ -71,7 +67,5 @@ function handleNavigate(path) {
     navItems.forEach((navItem) =>
     navItem === newNavItem ? navItem.component.show() : navItem.component.hide())
 }
-
-
 }
 
