@@ -5,7 +5,7 @@ import createElement from './createElement'
 // import Header from './Header'
 // import Navigation from './Navigation'
 // import Button from './Button'
-// import Energy from './Energy'
+import Energy from './Energy'
 import Journal from './Journal'
 import JournalForm from './JournalForm'
 import Teams from './Teams'
@@ -16,6 +16,7 @@ export default function App({ target }) {
 
 Teams({ target: el })
 Buddy({ target: el })
+Energy({ target: el })
 Journal({ target: el })
 JournalForm( {target: el })
 }
