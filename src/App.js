@@ -10,6 +10,7 @@ import Journal from './Journal'
 import JournalForm from './JournalForm'
 import Teams from './Teams'
 import Buddy from './Buddy'
+import Dashboard from './Dashboard'
 
 import DashboardIcon from './assets/DashboardIcon.svg'
 import BuddyIcon from './assets/BuddyIcon.svg'
