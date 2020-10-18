@@ -2,7 +2,7 @@ import './App.css'
 
 import createElement from './createElement'
 
-// import Header from './Header'
+import Header from './Header'
 import Navigation from './Navigation'
 // import Button from './Button'
 import Energy from './Energy'
@@ -21,6 +21,8 @@ import EnergyIcon from './assets/EnergyIcon.svg'
 
 export default function App({ target }) {
     const el = createElement({ className: 'App' })
+
+    Header({ text: 'Dashboard', target: el})
 
 
 const navItems = [

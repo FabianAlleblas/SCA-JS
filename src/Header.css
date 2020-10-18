@@ -1,28 +1,29 @@
-.main-header {
-  background-image: url(../../img/background_shape_1-line.svg);
-  background-size: cover;
+.Header-60 {
   color: var(--darkblue);
-  flex-direction: column;
   height: 60px;
   left: 0;
   position: absolute;
   right: 0;
   top: 0;
+}
+
+.Header-60 svg {
+  position: absolute;
   z-index: 100;
 }
 
-.header-80 {
-  background-image: url(../../img/background_shape_2-lines.svg);
+.Header-80 {
   height: 80px;
 }
 
-.header__heading {
+.Header__heading {
   font-size: 16px;
   font-weight: 700;
   text-transform: uppercase;
+  z-index: 150;
 }
 
-.header__subheading {
+.Header__subheading {
   color: var(--midblue);
   font-size: 12px;
   font-weight: 400;
