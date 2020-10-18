@@ -2,7 +2,7 @@ import createElement from './createElement'
 import './Energy.css'
 import graphImg from './assets/image.png'
 
-export default function Energy({ target }){
+export default function Energy({ target, hidden = true }){
     const el = createElement({ type: 'main', className: 'main-scrolling p-3 grid-30', target })
     const graphContainer = createElement({ type: 'section', className: 'graph', target: el })
     heading({ text: 'Energy Level throughout the day', target: graphContainer })
@@ -27,4 +27,18 @@ export default function Energy({ target }){
         const energyHeading = createElement({type: 'h3', className:'graph__heading mb-1', target })
         energyHeading.textContent = text
     }
+
+    hidden && hide()
+
+    function show() {
+        el.classList.remove('hidden')
+    }
+    
+    function hide() {
+        el.classList.add('hidden')
+    }
+    
+    return {show, hide}
+    
+
 }

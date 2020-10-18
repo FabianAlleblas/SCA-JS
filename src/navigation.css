@@ -1,4 +1,19 @@
-.navigation {
+.Navigation__container {
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(255, 255, 255, 0.8) 100%
+  );
+
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+}
+
+.Navigation {
   align-items: center;
   background: var(--white);
   border-radius: 10px;
@@ -10,21 +25,17 @@
   padding-top: 5px;
 }
 
-.navigation__link {
+.Navigation__link {
   padding: 0;
   border: none;
   background: none;
   color: var(--midblue);
 }
 
-.navigation__icon {
+.Navigation__link svg {
   height: 20px;
 }
-.navigation__icon:hover {
-  cursor: pointer;
-}
 
-.navigation__icon:hover,
-.navigation__link--active {
+.Navigation__link--active {
   color: var(--darkblue);
 }

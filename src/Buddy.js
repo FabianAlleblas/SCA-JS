@@ -2,10 +2,22 @@ import createElement from './createElement'
 import './Students.css'
 import Plus from './assets/Plus.svg'
 
-export default function Buddy({ target, dashBoardMode = false }){
+export default function Buddy({ target, dashBoardMode = false, hidden = false }){
 
     const el = dashBoardMode ? target : createElement({ type: 'main', className: 'main-scrolling scrolling-80 p-3 grid-20', target })
     
+hidden && hide()
+
+function show() {
+    el.classList.remove('hidden')
+}
+
+function hide() {
+    el.classList.add('hidden')
+}
+
+
+
     const studentPairs = [
         { student1: 'Sudanka Bakalowits', student2: 'Yasaman Foroutan' },
         { student1: 'Sudanka Foo Bakalowits', student2: 'Yasaman Foo Foroutan' },
@@ -26,5 +38,7 @@ export default function Buddy({ target, dashBoardMode = false }){
         <li>${student2}</li>
         ` 
     }
+
+    return {show, hide}  
 }
 
