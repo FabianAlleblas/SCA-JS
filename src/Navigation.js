@@ -10,6 +10,7 @@ navItems.forEach((navItem) => {
 
 const btn = createElement({ type: 'button', target: navBar, className: 'Navigation__link w-100' })
 btn.innerHTML = navItem.icon
+
 btn.addEventListener('click', (event) => {
     onNavigate(navItem.path)
     activateButton(event)

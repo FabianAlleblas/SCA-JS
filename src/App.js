@@ -60,13 +60,13 @@ const navItems = [
 
 const header = Header({ title: navItems[0].title, target: el})
 
-JournalForm( {target: el })
-Navigation( {target: el, navItems, onNavigate: handleNavigate })
+JournalForm({ target: el })
+Navigation({ target: el, navItems, onNavigate: handleNavigate })
 
 function handleNavigate(path) {
     const newNavItem = navItems.find((navItem) => navItem.path === path)
     header.update(newNavItem.title, newNavItem.subtitle)
-    navItems.forEach((navItem) =>
+    navItems.forEach((navItem) => 
     navItem === newNavItem ? navItem.component.show() : navItem.component.hide())
 }
 }
