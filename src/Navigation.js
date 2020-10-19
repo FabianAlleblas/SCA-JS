@@ -18,12 +18,13 @@ export default function Navigation({
     target: el,
   })
 
-  navItems.forEach((navItem) => {
+  navItems.forEach((navItem, index) => {
     const btn = createElement({
       type: 'button',
       target: navBar,
       className: 'Navigation__link w-100',
     })
+    index === 0 ? btn.classList.add('Navigation__link--active') : ''
     btn.innerHTML = navItem.icon
     btn.name = navItem.path
 
