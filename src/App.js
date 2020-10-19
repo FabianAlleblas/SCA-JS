@@ -22,7 +22,6 @@ import EnergyIcon from './assets/EnergyIcon.svg'
 export default function App({ target }) {
     const el = createElement({ className: 'App' })
 
-    const header = Header({ text: 'Dashboard', target: el})
 
 
 const navItems = [
@@ -37,13 +36,15 @@ const navItems = [
         path: 'buddys',
         component: Buddy({target: el, hidden: true }),
         icon: BuddyIcon,
-        title: 'Buddy',
+        title: 'Code Buddys',
+        subtitle: 'On Monday - 18.07.2020'
     },
     {
         path: 'teams',
         component: Teams({target: el, hidden: true }),
         icon: TeamIcon,
         title: 'Teams',
+        subtitle: 'for Exercise 1'
     },
     {
         path: 'energy',
@@ -60,12 +61,15 @@ const navItems = [
     
     ]
 
+const header = Header({ title: navItems[0].title, target: el})
+
+
 JournalForm( {target: el })
 Navigation( {target: el, navItems, onNavigate: handleNavigate })
 
 function handleNavigate(path) {
     const newNavItem = navItems.find((navItem) => navItem.path === path)
-    header.update(newNavItem.title)
+    header.update(newNavItem.title, newNavItem.subtitle)
     navItems.forEach((navItem) =>
     navItem === newNavItem ? navItem.component.show() : navItem.component.hide())
 }
