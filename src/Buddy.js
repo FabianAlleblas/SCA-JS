@@ -16,8 +16,6 @@ function hide() {
     el.classList.add('hidden')
 }
 
-
-
     const studentPairs = [
         { student1: 'Sudanka Bakalowits', student2: 'Yasaman Foroutan' },
         { student1: 'Sudanka Foo Bakalowits', student2: 'Yasaman Foo Foroutan' },

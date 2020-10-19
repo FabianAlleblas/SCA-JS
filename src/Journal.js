@@ -13,7 +13,6 @@ export default function Journal({ target, hidden = true }){
     journalCard()
     journalCard()
 
-
 function journalCard(){
     const card = createElement({ type: 'section', className: 'Journal-card shadow-blue p-2', target: el })
     const journalHeading = createElement({ type: 'h3', className: 'Journal-card__heading', target: card })
@@ -55,7 +54,6 @@ function journalCard(){
 
 }
 
-
 hidden && hide()
 
 function show() {
@@ -67,6 +65,4 @@ function hide() {
 }
 
 return {show, hide}
-
-
 }

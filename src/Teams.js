@@ -62,5 +62,4 @@ function hide() {
 }
 
 return {show, hide}
-
 }

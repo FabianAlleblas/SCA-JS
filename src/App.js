@@ -4,7 +4,6 @@ import createElement from './createElement'
 
 import Header from './Header'
 import Navigation from './Navigation'
-// import Button from './Button'
 import Energy from './Energy'
 import Journal from './Journal'
 import JournalForm from './JournalForm'
@@ -22,39 +21,37 @@ import EnergyIcon from './assets/EnergyIcon.svg'
 export default function App({ target }) {
     const el = createElement({ className: 'App' })
 
-
-
 const navItems = [
 
     {
         path: 'dashboard',
-        component: Dashboard({target: el, hidden: false }),
+        component: Dashboard({target: el }),
         icon: DashboardIcon,
         title: 'Dashboard',
     },
     {
         path: 'buddys',
-        component: Buddy({target: el, hidden: true }),
+        component: Buddy({target: el }),
         icon: BuddyIcon,
         title: 'Code Buddys',
         subtitle: 'On Monday - 18.07.2020'
     },
     {
         path: 'teams',
-        component: Teams({target: el, hidden: true }),
+        component: Teams({target: el }),
         icon: TeamIcon,
         title: 'Teams',
         subtitle: 'for Exercise 1'
     },
     {
         path: 'energy',
-        component: Energy({target: el, hidden: true }),
+        component: Energy({target: el }),
         icon: EnergyIcon,
         title: 'Energy',
     },
     {
         path: 'journal',
-        component: Journal({target: el, hidden: true }),
+        component: Journal({target: el }),
         icon: JournalIcon,
         title: 'Journal',
     },
@@ -62,7 +59,6 @@ const navItems = [
     ]
 
 const header = Header({ title: navItems[0].title, target: el})
-
 
 JournalForm( {target: el })
 Navigation( {target: el, navItems, onNavigate: handleNavigate })

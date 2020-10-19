@@ -2,7 +2,7 @@ import createElement from './createElement'
 import './Header.css'
 
 export default function Header({ target, title, subTitle }) {
-    const el = createElement({ type:'header', className: 'Header center', target})
+    const el = createElement({ type:'header', className: 'Header center', target })
 
     update(title, subTitle)
 

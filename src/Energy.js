@@ -21,8 +21,7 @@ export default function Energy({ target, hidden = true }){
                 <li class="energy__rating-item w-100 mid1">75%</li>
                 <li class="energy__rating-item w-100 mid2">50%</li>
                 <li class="energy__rating-item w-100 low">25%</li>
-                `
-                
+                `      
     function heading({ text, target }){
         const energyHeading = createElement({type: 'h3', className:'graph__heading mb-1', target })
         energyHeading.textContent = text
@@ -39,6 +38,4 @@ export default function Energy({ target, hidden = true }){
     }
     
     return {show, hide}
-    
-
 }
