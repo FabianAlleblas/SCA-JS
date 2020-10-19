@@ -21,7 +21,7 @@ export default function Navigation({ target, onNavigate, navItems }) {
       target: navBar,
       className: 'Navigation__link w-100',
     })
-    index === 0 ? btn.classList.add('Navigation__link--active') : ''
+    index === 0 && btn.classList.add('Navigation__link--active')
     btn.innerHTML = navItem.icon
 
     allButtons.push(btn)
