@@ -58,13 +58,12 @@ const navItems = [
         icon: JournalIcon,
         title: 'Journal',
     },
-    
     ]
 
 const header = Header({ title: navItems[0].title, target: el})
 
+JournalForm({target: el, hidden: true, navigateToForm })
 
-JournalForm( {target: el })
 Navigation( {target: el, navItems, onNavigate: handleNavigate })
 
 function handleNavigate(path) {
@@ -73,5 +72,25 @@ function handleNavigate(path) {
     navItems.forEach((navItem) =>
     navItem === newNavItem ? navItem.component.show() : navItem.component.hide())
 }
+
+/* function navigateToForm() {
+    const pageJournalForm = navItems.find(index === 5)
+    navItems.forEach((navItem) =>
+    navItem === pageJournalForm ? navItem.component.show() : navItem.component.hide())
+} */
+
+/* 
+    function navigateToForm() {
+        Dashboard.hide()
+        Buddy.hide()
+        Teams.hide()
+        Energy.hide()
+        Journal.hide()
+        JournalForm.show()
+    }
+
+
+*/
+
 }
 
