@@ -26,6 +26,7 @@ export default function JournalForm({ target, hidden = false }) {
 
   const ratingWrapper = createElement({
     type: 'fieldset',
+    className: 'rating-wrapper',
     target: journalForm,
   })
 
