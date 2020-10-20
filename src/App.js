@@ -77,7 +77,7 @@ export default function App({ target }) {
         : navItem.component.hide()
     )
   }
-  function navigateToForm(pathe) {
+  function navigateToForm() {
     navItems.forEach((navItem) =>
       navItem.path === 'journal-form'
         ? navItem.component.show()
