@@ -54,16 +54,15 @@ export default function App({ target }) {
       icon: JournalIcon,
       title: 'Journal',
     },
+    {
+      path: 'journal-form',
+      component: JournalForm({
+        target: el,
+        hidden: true,
+      }),
+      title: 'Journal',
+    },
   ]
-
-  const journalForm = {
-    path: 'journal-form',
-    component: JournalForm({
-      target: el,
-      hidden: true,
-    }),
-    title: 'Journal',
-  }
 
   const header = Header({ title: navItems[0].title, target: el })
 
@@ -78,9 +77,15 @@ export default function App({ target }) {
         : navItem.component.hide()
     )
   }
-
-  function navigateToForm() {
-    navItems.forEach((navItem) => navItem.component.hide())
-    journalForm.component.show()
+  function navigateToForm(pathe) {
+    navItems.forEach((navItem) =>
+      navItem.path === 'journal-form'
+        ? navItem.component.show()
+        : navItem.component.hide()
+    )
   }
 }
+
+// navItems.forEach((navItem) => navItem.component.hide())
+// journalForm.component.show()
+// navItem.component.show() === journalForm.hide()

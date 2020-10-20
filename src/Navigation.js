@@ -14,16 +14,19 @@ export default function Navigation({ target, onNavigate, navItems }) {
   })
 
   navItems.forEach((navItem) => {
-    const btn = createElement({
-      type: 'button',
-      target: navBar,
-      className: 'Navigation__link w-100',
-    })
-    btn.innerHTML = navItem.icon
-    btn.addEventListener('click', (event) => {
-      onNavigate(navItem.path)
-      activateButton(event)
-    })
+    if (navItem.icon !== undefined) {
+      const btn = createElement({
+        type: 'button',
+        target: navBar,
+        className: 'Navigation__link w-100',
+      })
+
+      btn.innerHTML = navItem.icon
+      btn.addEventListener('click', (event) => {
+        onNavigate(navItem.path)
+        activateButton(event)
+      })
+    }
 
     function activateButton(event) {
       const buttonSelector = navBar.querySelectorAll('button')
