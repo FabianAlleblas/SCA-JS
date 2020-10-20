@@ -1,7 +1,7 @@
 import createElement from './createElement'
 import './JournalForm.css'
-import RatingIcon from './assets/Star_Out.svg'
-import ComprehensionIcon from './assets/Rectangle_Out.svg'
+import RatingIcon from './assets/StarOutline.svg'
+import ComprehensionIcon from './assets/RectangleOutline.svg'
 import Button from './Buttons'
 
 export default function JournalForm({ target, hidden = false }) {
