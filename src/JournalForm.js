@@ -1,7 +1,7 @@
 import createElement from './createElement'
 import './JournalForm.css'
-import RatingStar from './assets/star_outline.svg'
-import ComprehensionLevel from './assets/rectangle_outline.svg'
+import RatingIcon from './assets/Star_Out.svg'
+import ComprehensionIcon from './assets/Rectangle_Out.svg'
 import Button from './Buttons'
 
 export default function JournalForm({ target, hidden = false }) {
@@ -41,31 +41,31 @@ export default function JournalForm({ target, hidden = false }) {
     name: 'rating',
     value: '5',
     target: starWrapper,
-    icon: RatingStar,
+    icon: RatingIcon,
   })
   videoKilledTheRadioStar({
     name: 'rating',
     value: '4',
     target: starWrapper,
-    icon: RatingStar,
+    icon: RatingIcon,
   })
   videoKilledTheRadioStar({
     name: 'rating',
     value: '3',
     target: starWrapper,
-    icon: RatingStar,
+    icon: RatingIcon,
   })
   videoKilledTheRadioStar({
     name: 'rating',
     value: '2',
     target: starWrapper,
-    icon: RatingStar,
+    icon: RatingIcon,
   })
   videoKilledTheRadioStar({
     name: 'rating',
     value: '1',
     target: starWrapper,
-    icon: RatingStar,
+    icon: RatingIcon,
   })
 
   const compWrapper = createElement({
@@ -84,70 +84,70 @@ export default function JournalForm({ target, hidden = false }) {
     name: 'comprehension',
     value: '10',
     target: levelWrapper,
-    icon: ComprehensionLevel,
+    icon: ComprehensionIcon,
   })
 
   videoKilledTheRadioStar({
     name: 'comprehension',
     value: '9',
     target: levelWrapper,
-    icon: ComprehensionLevel,
+    icon: ComprehensionIcon,
   })
 
   videoKilledTheRadioStar({
     name: 'comprehension',
     value: '8',
     target: levelWrapper,
-    icon: ComprehensionLevel,
+    icon: ComprehensionIcon,
   })
 
   videoKilledTheRadioStar({
     name: 'comprehension',
     value: '7',
     target: levelWrapper,
-    icon: ComprehensionLevel,
+    icon: ComprehensionIcon,
   })
 
   videoKilledTheRadioStar({
     name: 'comprehension',
     value: '6',
     target: levelWrapper,
-    icon: ComprehensionLevel,
+    icon: ComprehensionIcon,
   })
 
   videoKilledTheRadioStar({
     name: 'comprehension',
     value: '5',
     target: levelWrapper,
-    icon: ComprehensionLevel,
+    icon: ComprehensionIcon,
   })
 
   videoKilledTheRadioStar({
     name: 'comprehension',
     value: '4',
     target: levelWrapper,
-    icon: ComprehensionLevel,
+    icon: ComprehensionIcon,
   })
 
   videoKilledTheRadioStar({
     name: 'comprehension',
     value: '3',
     target: levelWrapper,
-    icon: ComprehensionLevel,
+    icon: ComprehensionIcon,
   })
 
   videoKilledTheRadioStar({
     name: 'comprehension',
     value: '2',
     target: levelWrapper,
-    icon: ComprehensionLevel,
+    icon: ComprehensionIcon,
   })
 
   videoKilledTheRadioStar({
     name: 'comprehension',
     value: '1',
     target: levelWrapper,
-    icon: ComprehensionLevel,
+    icon: ComprehensionIcon,
   })
 
   const motto = subHeading({
