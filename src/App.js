@@ -24,7 +24,7 @@ export default function App({ target }) {
   const navItems = [
     {
       path: 'dashboard',
-      component: Dashboard({ target: el, hidden: true }),
+      component: Dashboard({ target: el, hidden: false }),
       icon: DashboardIcon,
       title: 'Dashboard',
     },
@@ -58,13 +58,19 @@ export default function App({ target }) {
 
   const header = Header({ title: navItems[0].title, target: el })
 
-  JournalForm({ target: el, hidden: false })
-
+  JournalForm({ target: el })
   Navigation({ target: el, navItems, onNavigate: handleNavigate })
 
-  function handleNavigate(path) {
+  function handleNavigate(path, btn, allButtons) {
     const newNavItem = navItems.find((navItem) => navItem.path === path)
     header.update(newNavItem.title, newNavItem.subtitle)
+
+    allButtons.forEach((singleButtonElement) => {
+      btn === singleButtonElement
+        ? singleButtonElement.classList.add('Navigation__link--active')
+        : singleButtonElement.classList.remove('Navigation__link--active')
+    })
+
     navItems.forEach((navItem) =>
       navItem === newNavItem
         ? navItem.component.show()
