@@ -68,9 +68,16 @@ export default function App({ target }) {
 
   Navigation({ target: el, navItems, onNavigate: handleNavigate })
 
-  function handleNavigate(path) {
+  function handleNavigate(path, btn, allButtons) {
     const newNavItem = navItems.find((navItem) => navItem.path === path)
     header.update(newNavItem.title, newNavItem.subtitle)
+
+    allButtons.forEach((singleButtonElement) => {
+      btn === singleButtonElement
+        ? singleButtonElement.classList.add('Navigation__link--active')
+        : singleButtonElement.classList.remove('Navigation__link--active')
+    })
+
     navItems.forEach((navItem) =>
       navItem === newNavItem
         ? navItem.component.show()
@@ -85,7 +92,3 @@ export default function App({ target }) {
     )
   }
 }
-
-// navItems.forEach((navItem) => navItem.component.hide())
-// journalForm.component.show()
-// navItem.component.show() === journalForm.hide()
