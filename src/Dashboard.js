@@ -3,26 +3,24 @@ import Teams from './Teams'
 import Journal from './Journal'
 import createElement from './createElement'
 
+export default function Dashboard({ target, hidden = true }) {
+  const el = createElement({
+    type: 'main',
+    className: 'main-scrolling p-3 grid-30',
+    target,
+  })
+  Buddy({ target: el, dashBoardMode: true })
+  Teams({ target: el, dashBoardMode: true })
 
-export default function Dashboard({ target, hidden = false }){
-const el = createElement({ type: 'main', className: 'main-scrolling p-3 grid-30', target })
-Buddy({ target: el, dashBoardMode: true })
-Teams({ target: el, dashBoardMode: true })
+  hidden && hide()
 
-
-hidden && hide()
-
-function show() {
+  function show() {
     el.classList.remove('hidden')
-}
+  }
 
-function hide() {
+  function hide() {
     el.classList.add('hidden')
-}
+  }
 
-return {show, hide}
-
-
-
-
+  return { show, hide }
 }

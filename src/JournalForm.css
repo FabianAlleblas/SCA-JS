@@ -49,3 +49,15 @@ textarea.Journal-form__input {
   top: 100%;
   width: 100%;
 }
+
+.rating-wrapper input[type='radio']:checked ~ label > svg {
+  color: var(--darkblue);
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+.comp-wrapper input[type='radio']:checked ~ label > svg {
+  color: var(--darkblue);
+  fill: currentColor;
+  stroke: currentColor;
+}
