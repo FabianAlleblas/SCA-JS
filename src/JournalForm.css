@@ -52,12 +52,6 @@ textarea.Journal-form__input {
   width: 100%;
 }
 
-/* .comp-wrapper {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-} */
-
 .rating-wrapper input[type='radio']:checked ~ label > svg {
   color: var(--darkblue);
   fill: currentColor;

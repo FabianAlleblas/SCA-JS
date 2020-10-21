@@ -177,13 +177,23 @@ export default function JournalForm({ target, hidden = false, onCLick }) {
     className: 'Journal-form__button-wrapper grid-10 mt-1',
     target: journalForm,
   })
-  Button({ text: 'Cancel', className: 'button plain', target: buttonWrapper })
+  Button({
+    text: 'Cancel',
+    className: 'button plain',
+    target: buttonWrapper,
+    onClick: resetForm,
+  })
   Button({
     text: 'Save ✓',
     className: 'button',
     target: buttonWrapper,
     onClick: saveForm,
   })
+
+  function resetForm(event) {
+    event.preventDefault()
+    journalForm.reset()
+  }
 
   let journalEntries = loadLocally('journalEntries') ?? []
 
