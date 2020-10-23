@@ -13,22 +13,25 @@ export default function Navigation({ target, onNavigate, navItems }) {
     target: el,
   })
 
-  let allButtons = []
+  const allButtons = []
 
   navItems.forEach((navItem, index) => {
-    const btn = createElement({
-      type: 'button',
-      target: navBar,
-      className: 'Navigation__link w-100',
-    })
-    index === 0 && btn.classList.add('Navigation__link--active')
-    btn.innerHTML = navItem.icon
+    if (navItem.icon) {
+      const btn = createElement({
+        type: 'button',
+        target: navBar,
+        className: 'Navigation__link w-100',
+      })
 
-    allButtons.push(btn)
+      index === 0 && btn.classList.add('Navigation__link--active')
+      btn.innerHTML = navItem.icon
 
-    btn.addEventListener('click', () => {
-      onNavigate(navItem.path, btn, allButtons)
-    })
+      allButtons.push(btn)
+
+      btn.addEventListener('click', () => {
+        onNavigate(navItem.path, btn, allButtons)
+      })
+    }
   })
 
   return {}

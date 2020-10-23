@@ -4,7 +4,7 @@ import RatingStar from './assets/star_outline.svg'
 import ComprehensionLevel from './assets/rectangle_outline.svg'
 import Button from './Buttons'
 
-export default function JournalForm({ target, hidden = false }) {
+export default function JournalForm({ target, hidden = false, onCLick }) {
   const el = createElement({
     type: 'main',
     className: 'main-scrolling p-3',
@@ -156,7 +156,7 @@ export default function JournalForm({ target, hidden = false }) {
     text: 'Motto:',
     target: journalForm,
   })
-  createElement({
+  const mottoInput = createElement({
     type: 'input',
     className: 'Journal-form__input w-100 mt-1 mb-2',
     target: motto,
@@ -167,7 +167,7 @@ export default function JournalForm({ target, hidden = false }) {
     text: 'Notes:',
     target: journalForm,
   })
-  createElement({
+  const notesInput = createElement({
     type: 'textarea',
     className: 'Journal-form__input w-100 mt-1 mb-2',
     target: notes,
@@ -177,8 +177,54 @@ export default function JournalForm({ target, hidden = false }) {
     className: 'Journal-form__button-wrapper grid-10 mt-1',
     target: journalForm,
   })
-  Button({ text: 'Cancel', className: 'button plain', target: buttonWrapper })
-  Button({ text: 'Save ✓', className: 'button', target: buttonWrapper })
+  Button({
+    text: 'Cancel',
+    className: 'button plain',
+    target: buttonWrapper,
+    onClick: resetForm,
+  })
+  Button({
+    text: 'Save ✓',
+    className: 'button',
+    target: buttonWrapper,
+    onClick: saveForm,
+  })
+
+  function resetForm(event) {
+    event.preventDefault()
+    journalForm.reset()
+  }
+
+  let journalEntries = loadLocally('journalEntries') ?? []
+
+  function saveForm(event) {
+    event.preventDefault()
+    journalEntries = [
+      ...journalEntries,
+      {
+        Rating: Number(journalForm.rating.value),
+        Comprehension: Number(journalForm.comprehension.value),
+        Motto: mottoInput.value,
+        Notes: notesInput.value,
+      },
+    ]
+    saveLocally('journalEntries', journalEntries)
+    journalForm.reset()
+  }
+
+  function saveLocally(key, data) {
+    const jsonString = JSON.stringify(data)
+    localStorage.setItem(key, jsonString)
+  }
+
+  function loadLocally(key) {
+    const jsonString = localStorage.getItem(key)
+    try {
+      return JSON.parse(jsonString)
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
 
   function videoKilledTheRadioStar({
     name,

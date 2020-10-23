@@ -4,7 +4,7 @@ import createElement from './createElement'
 
 import Header from './Header'
 import Navigation from './Navigation'
-// import Button from './Button'
+import Button from './Button'
 import Energy from './Energy'
 import Journal from './Journal'
 import JournalForm from './JournalForm'
@@ -50,15 +50,22 @@ export default function App({ target }) {
     },
     {
       path: 'journal',
-      component: Journal({ target: el, hidden: true }),
+      component: Journal({ target: el, hidden: true, navigateToForm }),
       icon: JournalIcon,
+      title: 'Journal',
+    },
+    {
+      path: 'journal-form',
+      component: JournalForm({
+        target: el,
+        hidden: true,
+      }),
       title: 'Journal',
     },
   ]
 
   const header = Header({ title: navItems[0].title, target: el })
 
-  JournalForm({ target: el })
   Navigation({ target: el, navItems, onNavigate: handleNavigate })
 
   function handleNavigate(path, btn, allButtons) {
@@ -73,6 +80,13 @@ export default function App({ target }) {
 
     navItems.forEach((navItem) =>
       navItem === newNavItem
+        ? navItem.component.show()
+        : navItem.component.hide()
+    )
+  }
+  function navigateToForm() {
+    navItems.forEach((navItem) =>
+      navItem.path === 'journal-form'
         ? navItem.component.show()
         : navItem.component.hide()
     )
