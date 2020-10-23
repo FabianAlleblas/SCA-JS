@@ -3,6 +3,7 @@ import createElement from './createElement'
 import Button from './Buttons'
 import RatingStar from './assets/Star.svg'
 import RatingComprehension from './assets/Rectangle.svg'
+import { loadLocally } from './handleStorage'
 
 export default function Journal({ target, hidden = true, navigateToForm }) {
   const el = createElement({
@@ -22,9 +23,11 @@ export default function Journal({ target, hidden = true, navigateToForm }) {
     onClick: navigateToForm,
   })
 
-  journalCard()
-  journalCard()
-  journalCard()
+  let journalEntries = loadLocally('journalEntries') ?? []
+
+  console.log(journalEntries)
+
+  journalEntries.forEach((journalEntry) => journalCard())
 
   function journalCard() {
     const card = createElement({
