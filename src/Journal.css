@@ -3,6 +3,10 @@
   position: relative;
 }
 
+.Journal-card svg {
+  color: var(--midblue);
+}
+
 .Journal-card__heading {
   color: var(--darkblue);
   font-size: 14px;

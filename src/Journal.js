@@ -27,9 +27,16 @@ export default function Journal({ target, hidden = true, navigateToForm }) {
 
   console.log(journalEntries)
 
-  journalEntries.forEach((journalEntry) => journalCard())
+  journalEntries.reverse().forEach((journalEntry) => {
+    journalCard(
+      journalEntry.notes,
+      journalEntry.motto,
+      journalEntry.rating,
+      journalEntry.comprehension
+    )
+  })
 
-  function journalCard() {
+  function journalCard(journalNotes, journalMotto, journalRating, journalComp) {
     const card = createElement({
       type: 'section',
       className: 'Journal-card shadow-blue p-2',
@@ -47,46 +54,46 @@ export default function Journal({ target, hidden = true, navigateToForm }) {
       className: 'Journal-card__rating',
       target: card,
     })
-    rating.innerHTML = `
-    <li>${RatingStar}</li>
-    <li>${RatingStar}</li>
-    <li>${RatingStar}</li>
-    <li class="inactive">${RatingStar}</li>
-    <li class="inactive">${RatingStar}</li>
-    `
+
+    const journalStars = Array(5).fill()
+
+    journalStars.forEach((_, index) => {
+      const ratingItem = createElement({ type: 'li', target: rating })
+      ratingItem.innerHTML = RatingStar
+
+      index + 1 > journalRating && ratingItem.classList.add('inactive')
+    })
+
     subHeading({ text: 'Comprehension:' })
     const comprehension = createElement({
       type: 'ul',
       className: 'Journal-card__comprehension',
       target: card,
     })
-    comprehension.innerHTML = `
-    <li>${RatingComprehension}</li>
-    <li>${RatingComprehension}</li>
-    <li>${RatingComprehension}</li>
-    <li>${RatingComprehension}</li>
-    <li>${RatingComprehension}</li>
-    <li>${RatingComprehension}</li>
-    <li class="inactive">${RatingComprehension}</li>
-    <li class="inactive">${RatingComprehension}</li>
-    <li class="inactive">${RatingComprehension}</li>
-    <li class="inactive">${RatingComprehension}</li>
-    `
+
+    const compLevels = Array(10).fill()
+
+    compLevels.forEach((_, index) => {
+      const compItem = createElement({ type: 'li', target: comprehension })
+      compItem.innerHTML = RatingComprehension
+
+      index + 1 > journalComp && compItem.classList.add('inactive')
+    })
+
     subHeading({ text: 'Motto:' })
     const motto = createElement({
       type: 'p',
       className: 'Journal-card__motto',
       target: card,
     })
-    motto.textContent = "„That's life in the city“"
+    motto.textContent = journalMotto
     subHeading({ text: 'Notes:' })
     const notes = createElement({
       type: 'p',
       className: 'Journal-card__notes',
       target: card,
     })
-    notes.textContent =
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae necessitatibus iusto accusantium possimus ex vero.'
+    notes.textContent = journalNotes
 
     function subHeading({ text }) {
       const journalSubheading = createElement({

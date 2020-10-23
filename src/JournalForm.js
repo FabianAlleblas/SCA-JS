@@ -1,7 +1,5 @@
 import createElement from './createElement'
 import './JournalForm.css'
-import RatingStar from './assets/star_outline.svg'
-import ComprehensionLevel from './assets/rectangle_outline.svg'
 import Button from './Buttons'
 import { saveLocally, loadLocally } from './handleStorage'
 
@@ -47,7 +45,6 @@ export default function JournalForm({ target, hidden = false, onCLick }) {
       name: 'rating',
       value: ratingStarNumber,
       target: starWrapper,
-      //icon: RatingStar,
       icon: `<svg width="36px" 
                   height="35px" 
                   stroke="#7589a2" 
@@ -140,15 +137,24 @@ export default function JournalForm({ target, hidden = false, onCLick }) {
 
   let journalEntries = loadLocally('journalEntries') ?? []
 
+  const options = {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  }
+
   function saveForm(event) {
     event.preventDefault()
+    const date = new Date()
     journalEntries = [
       ...journalEntries,
       {
-        Rating: Number(journalForm.rating.value),
-        Comprehension: Number(journalForm.comprehension.value),
-        Motto: mottoInput.value,
-        Notes: notesInput.value,
+        rating: Number(journalForm.rating.value),
+        comprehension: Number(journalForm.comprehension.value),
+        motto: mottoInput.value,
+        notes: notesInput.value,
+        timeStamp: date,
       },
     ]
     saveLocally('journalEntries', journalEntries)
