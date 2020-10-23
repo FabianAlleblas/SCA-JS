@@ -3,6 +3,7 @@ import './JournalForm.css'
 import RatingStar from './assets/star_outline.svg'
 import ComprehensionLevel from './assets/rectangle_outline.svg'
 import Button from './Buttons'
+import { saveLocally, loadLocally } from './handleStorage'
 
 export default function JournalForm({ target, hidden = false, onCLick }) {
   const el = createElement({
@@ -152,20 +153,6 @@ export default function JournalForm({ target, hidden = false, onCLick }) {
     ]
     saveLocally('journalEntries', journalEntries)
     journalForm.reset()
-  }
-
-  function saveLocally(key, data) {
-    const jsonString = JSON.stringify(data)
-    localStorage.setItem(key, jsonString)
-  }
-
-  function loadLocally(key) {
-    const jsonString = localStorage.getItem(key)
-    try {
-      return JSON.parse(jsonString)
-    } catch (error) {
-      console.log(error.message)
-    }
   }
 
   function videoKilledTheRadioStar({
