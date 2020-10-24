@@ -40,6 +40,7 @@ export default function renderJournalCard({ target, dashBoardMode = false }) {
     journalTimeStamp
   ) {
     const dateNow = Date.now()
+
     const dateOrDayTrying =
       (dateNow - journalTimeStamp) / 1000 / 3600 <= 24
         ? 'TODAY'
