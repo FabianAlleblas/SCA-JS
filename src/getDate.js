@@ -1,20 +1,6 @@
 export default function getDate() {
   const d = new Date()
 
-  const months = [
-    '01',
-    '02',
-    '03',
-    '04',
-    '05',
-    '06',
-    '07',
-    '08',
-    '09',
-    '10',
-    '11',
-    '12',
-  ]
   const days = [
     'Sunday',
     'Monday',
@@ -28,15 +14,10 @@ export default function getDate() {
   const dayIndex = d.getDay()
   const dayName = days[dayIndex]
 
-  const date = d.getDate()
+  const date = d.toLocaleDateString('de-DE')
 
-  const monthIndex = d.getMonth()
-  const month = months[monthIndex]
-
-  const year = d.getFullYear()
-
-  const subheadingDate = `On ${dayName} - ${date}.${month}.${year}`
-  const journalDate = `${date}.${month}.${year}`
+  const subheadingDate = `On ${dayName} - ${date}`
+  const journalDate = `${date}`
 
   return { subheadingDate, journalDate }
 }

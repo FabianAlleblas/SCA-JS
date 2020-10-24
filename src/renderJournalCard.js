@@ -26,7 +26,8 @@ export default function renderJournalCard({ target, dashBoardMode = false }) {
       journalEntry.motto,
       journalEntry.rating,
       journalEntry.comprehension,
-      journalEntry.date
+      journalEntry.date,
+      journalEntry.timestamp
     )
   })
 
@@ -35,8 +36,12 @@ export default function renderJournalCard({ target, dashBoardMode = false }) {
     journalMotto,
     journalRating,
     journalComp,
-    journalDate
+    journalDate,
+    journalTimeStamp
   ) {
+    const dateNow = Date.now()
+    const dateOrDayTrying = (dateNow - journalTimeStamp) / 1000 / 3600
+    console.log(dateOrDayTrying)
     const card = createElement({
       type: 'section',
       className: 'Journal-card shadow-blue p-2',
