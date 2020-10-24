@@ -7,6 +7,15 @@ import RatingComprehension from './assets/Rectangle.svg'
 export default function renderJournalCard({ target, dashBoardMode = false }) {
   const journalEntries = loadLocally('journalEntries') ?? []
 
+  if (dashBoardMode === true) {
+    const journalHeading = createElement({
+      type: 'h3',
+      className: 'Journal-card__heading mb-1',
+      target: target,
+    })
+    journalHeading.textContent = 'Yesterdays Journal:'
+  }
+
   const updatedJournalEntries = dashBoardMode
     ? journalEntries.reverse().slice(0, 1)
     : journalEntries.reverse()
@@ -26,16 +35,20 @@ export default function renderJournalCard({ target, dashBoardMode = false }) {
       className: 'Journal-card shadow-blue p-2',
       target: target,
     })
-    const journalHeading = createElement({
-      type: 'h3',
-      className: 'Journal-card__heading',
-      target: card,
-    })
-    journalHeading.textContent = 'Yesterday'
+
+    if (dashBoardMode === false) {
+      const journalHeading = createElement({
+        type: 'h3',
+        className: 'Journal-card__heading mb-2',
+        target: card,
+      })
+      journalHeading.textContent = 'YESTERDAY'
+    }
+
     subHeading({ text: 'Rating:' })
     const rating = createElement({
       type: 'ul',
-      className: 'Journal-card__rating',
+      className: 'Journal-card__rating mb-2',
       target: card,
     })
 
@@ -51,7 +64,7 @@ export default function renderJournalCard({ target, dashBoardMode = false }) {
     subHeading({ text: 'Comprehension:' })
     const comprehension = createElement({
       type: 'ul',
-      className: 'Journal-card__comprehension',
+      className: 'Journal-card__comprehension mb-2',
       target: card,
     })
 
@@ -67,7 +80,7 @@ export default function renderJournalCard({ target, dashBoardMode = false }) {
     subHeading({ text: 'Motto:' })
     const motto = createElement({
       type: 'p',
-      className: 'Journal-card__motto',
+      className: 'Journal-card__motto mb-2',
       target: card,
     })
     motto.textContent = journalMotto
@@ -82,7 +95,7 @@ export default function renderJournalCard({ target, dashBoardMode = false }) {
     function subHeading({ text }) {
       const journalSubheading = createElement({
         type: 'h4',
-        className: 'Journal-card__sub-heading mt-2 mb-1',
+        className: 'Journal-card__sub-heading mb-1',
         target: card,
       })
       journalSubheading.textContent = text

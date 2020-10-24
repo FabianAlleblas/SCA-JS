@@ -12,7 +12,8 @@ export default function Dashboard({ target, hidden = true }) {
   })
   Buddy({ target: el, dashBoardMode: true })
   Teams({ target: el, dashBoardMode: true })
-  renderJournalCard({ target: el, dashBoardMode: true })
+  const journalWrapper = createElement({ target: el })
+  renderJournalCard({ target: journalWrapper, dashBoardMode: true })
 
   hidden && hide()
 
