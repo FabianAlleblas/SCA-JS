@@ -15,11 +15,13 @@ export default function Journal({
     className: 'main-scrolling p-3 grid-20',
     target,
   })
+
   const buttonWrapper = createElement({
     type: 'section',
     className: 'center',
     target: el,
   })
+
   Button({
     text: 'Rate Today ⭑',
     className: 'button btn-200 shadow-orange',
@@ -28,7 +30,7 @@ export default function Journal({
     onClick: singleButtonNavigation,
   })
 
-  let journalEntries = loadLocally('journalEntries') ?? []
+  const journalEntries = loadLocally('journalEntries') ?? []
 
   journalEntries.reverse().forEach((journalEntry) => {
     journalCard(
