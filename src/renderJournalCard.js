@@ -25,11 +25,18 @@ export default function renderJournalCard({ target, dashBoardMode = false }) {
       journalEntry.notes,
       journalEntry.motto,
       journalEntry.rating,
-      journalEntry.comprehension
+      journalEntry.comprehension,
+      journalEntry.date
     )
   })
 
-  function journalCard(journalNotes, journalMotto, journalRating, journalComp) {
+  function journalCard(
+    journalNotes,
+    journalMotto,
+    journalRating,
+    journalComp,
+    journalDate
+  ) {
     const card = createElement({
       type: 'section',
       className: 'Journal-card shadow-blue p-2',
@@ -42,7 +49,7 @@ export default function renderJournalCard({ target, dashBoardMode = false }) {
         className: 'Journal-card__heading mb-2',
         target: card,
       })
-      journalHeading.textContent = 'YESTERDAY'
+      journalHeading.textContent = journalDate
     }
 
     subHeading({ text: 'Rating:' })

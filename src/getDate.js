@@ -35,7 +35,8 @@ export default function getDate() {
 
   const year = d.getFullYear()
 
-  const formattedDate = `On ${dayName} - ${date}.${month}.${year}`
+  const subheadingDate = `On ${dayName} - ${date}.${month}.${year}`
+  const journalDate = `${date}.${month}.${year}`
 
-  return formattedDate
+  return { subheadingDate, journalDate }
 }

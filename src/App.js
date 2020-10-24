@@ -34,7 +34,7 @@ export default function App({ target }) {
       component: Buddy({ target: el, hidden: true }),
       icon: BuddyIcon,
       title: 'Code Buddys',
-      subtitle: date,
+      subtitle: date.subheadingDate,
     },
     {
       path: 'teams',

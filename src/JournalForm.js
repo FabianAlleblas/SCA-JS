@@ -2,6 +2,7 @@ import createElement from './createElement'
 import './JournalForm.css'
 import Button from './Buttons'
 import { saveLocally, loadLocally } from './handleStorage'
+import getDate from './getDate'
 
 export default function JournalForm({
   target,
@@ -144,16 +145,9 @@ export default function JournalForm({
 
   let journalEntries = loadLocally('journalEntries') ?? []
 
-  // const options = {
-  //   weekday: 'long',
-  //   year: 'numeric',
-  //   month: 'long',
-  //   day: 'numeric',
-  // }
-
   function saveForm({ event, path }) {
     event.preventDefault()
-    // const date = new Date()
+    const date = getDate()
     journalEntries = [
       ...journalEntries,
       {
@@ -161,7 +155,8 @@ export default function JournalForm({
         comprehension: Number(journalForm.comprehension.value),
         motto: mottoInput.value,
         notes: notesInput.value,
-        // timeStamp: date,
+        date: date.journalDate,
+        timestamp: Date.now(),
       },
     ]
     saveLocally('journalEntries', journalEntries)
