@@ -40,8 +40,13 @@ export default function renderJournalCard({ target, dashBoardMode = false }) {
     journalTimeStamp
   ) {
     const dateNow = Date.now()
-    const dateOrDayTrying = (dateNow - journalTimeStamp) / 1000 / 3600
-    console.log(dateOrDayTrying)
+    const dateOrDayTrying =
+      (dateNow - journalTimeStamp) / 1000 / 3600 <= 24
+        ? 'TODAY'
+        : (dateNow - journalTimeStamp) / 1000 / 3600 <= 48
+        ? 'YESTERDAY'
+        : journalDate
+
     const card = createElement({
       type: 'section',
       className: 'Journal-card shadow-blue p-2',
@@ -54,7 +59,7 @@ export default function renderJournalCard({ target, dashBoardMode = false }) {
         className: 'Journal-card__heading mb-2',
         target: card,
       })
-      journalHeading.textContent = journalDate
+      journalHeading.textContent = dateOrDayTrying
     }
 
     subHeading({ text: 'Rating:' })
