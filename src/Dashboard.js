@@ -2,6 +2,7 @@ import Buddy from './Buddy'
 import Teams from './Teams'
 import Journal from './Journal'
 import createElement from './createElement'
+import renderJournalCard from './renderJournalCard'
 
 export default function Dashboard({ target, hidden = true }) {
   const el = createElement({
@@ -11,6 +12,7 @@ export default function Dashboard({ target, hidden = true }) {
   })
   Buddy({ target: el, dashBoardMode: true })
   Teams({ target: el, dashBoardMode: true })
+  renderJournalCard({ target: el, dashBoardMode: true })
 
   hidden && hide()
 
