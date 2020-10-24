@@ -87,7 +87,6 @@ export default function App({ target }) {
 
   function singleButtonNavigation({ path }) {
     navItems.forEach((navItem) => {
-      console.log(navItem.path, path)
       navItem.path === path
         ? navItem.component.show()
         : navItem.component.hide()
