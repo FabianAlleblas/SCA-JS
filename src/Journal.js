@@ -8,6 +8,7 @@ import { loadLocally } from './handleStorage'
 export default function Journal({
   target,
   hidden = true,
+  dashBoardMode = false,
   singleButtonNavigation,
 }) {
   const el = createElement({
@@ -29,8 +30,6 @@ export default function Journal({
   })
 
   let journalEntries = loadLocally('journalEntries') ?? []
-
-  console.log(journalEntries)
 
   journalEntries.reverse().forEach((journalEntry) => {
     journalCard(
@@ -120,5 +119,5 @@ export default function Journal({
     el.classList.add('hidden')
   }
 
-  return { show, hide }
+  return { show, hide, journalCard }
 }

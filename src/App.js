@@ -4,7 +4,6 @@ import createElement from './createElement'
 
 import Header from './Header'
 import Navigation from './Navigation'
-import Button from './Button'
 import Energy from './Energy'
 import Journal from './Journal'
 import JournalForm from './JournalForm'
@@ -73,10 +72,10 @@ export default function App({ target }) {
     const newNavItem = navItems.find((navItem) => navItem.path === path)
     header.update(newNavItem.title, newNavItem.subtitle)
 
-    allButtons.forEach((singleButtonElement) => {
-      btn === singleButtonElement
-        ? singleButtonElement.classList.add('Navigation__link--active')
-        : singleButtonElement.classList.remove('Navigation__link--active')
+    allButtons.forEach((Button) => {
+      btn === Button
+        ? Button.classList.add('Navigation__link--active')
+        : Button.classList.remove('Navigation__link--active')
     })
 
     navItems.forEach((navItem) =>
