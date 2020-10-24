@@ -8,7 +8,6 @@ import { loadLocally } from './handleStorage'
 export default function Journal({
   target,
   hidden = true,
-  dashBoardMode = false,
   singleButtonNavigation,
 }) {
   const el = createElement({
