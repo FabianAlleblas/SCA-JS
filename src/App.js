@@ -50,7 +50,7 @@ export default function App({ target }) {
     },
     {
       path: 'journal',
-      component: Journal({ target: el, hidden: true, navigateToForm }),
+      component: Journal({ target: el, hidden: true, navigateToPage }),
       icon: JournalIcon,
       title: 'Journal',
     },
@@ -59,6 +59,7 @@ export default function App({ target }) {
       component: JournalForm({
         target: el,
         hidden: true,
+        navigateToPage,
       }),
       title: 'Journal',
     },
@@ -84,11 +85,12 @@ export default function App({ target }) {
         : navItem.component.hide()
     )
   }
-  function navigateToForm() {
-    navItems.forEach((navItem) =>
-      navItem.path === 'journal-form'
+  function navigateToPage({ path }) {
+    navItems.forEach((navItem) => {
+      console.log(navItem.path, path)
+      navItem.path === path
         ? navItem.component.show()
         : navItem.component.hide()
-    )
+    })
   }
 }

@@ -5,7 +5,7 @@ import RatingStar from './assets/Star.svg'
 import RatingComprehension from './assets/Rectangle.svg'
 import { loadLocally } from './handleStorage'
 
-export default function Journal({ target, hidden = true, navigateToForm }) {
+export default function Journal({ target, hidden = true, navigateToPage }) {
   const el = createElement({
     type: 'main',
     className: 'main-scrolling p-3 grid-20',
@@ -20,7 +20,8 @@ export default function Journal({ target, hidden = true, navigateToForm }) {
     text: 'Rate Today ⭑',
     className: 'button btn-200 shadow-orange',
     target: buttonWrapper,
-    onClick: navigateToForm,
+    path: 'journal-form',
+    onClick: navigateToPage,
   })
 
   let journalEntries = loadLocally('journalEntries') ?? []

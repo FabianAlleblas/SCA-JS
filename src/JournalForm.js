@@ -3,7 +3,11 @@ import './JournalForm.css'
 import Button from './Buttons'
 import { saveLocally, loadLocally } from './handleStorage'
 
-export default function JournalForm({ target, hidden = false, onCLick }) {
+export default function JournalForm({
+  target,
+  hidden = false,
+  navigateToPage,
+}) {
   const el = createElement({
     type: 'main',
     className: 'main-scrolling p-3',
@@ -127,10 +131,11 @@ export default function JournalForm({ target, hidden = false, onCLick }) {
     text: 'Save ✓',
     className: 'button',
     target: buttonWrapper,
+    path: 'journal',
     onClick: saveForm,
   })
 
-  function resetForm(event) {
+  function resetForm({ event }) {
     event.preventDefault()
     journalForm.reset()
   }
@@ -144,7 +149,7 @@ export default function JournalForm({ target, hidden = false, onCLick }) {
     day: 'numeric',
   }
 
-  function saveForm(event) {
+  function saveForm({ event, path }) {
     event.preventDefault()
     const date = new Date()
     journalEntries = [
@@ -159,6 +164,7 @@ export default function JournalForm({ target, hidden = false, onCLick }) {
     ]
     saveLocally('journalEntries', journalEntries)
     journalForm.reset()
+    navigateToPage({ path })
   }
 
   function videoKilledTheRadioStar({
