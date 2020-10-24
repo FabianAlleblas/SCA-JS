@@ -50,7 +50,7 @@ export default function App({ target }) {
     },
     {
       path: 'journal',
-      component: Journal({ target: el, hidden: true, navigateToPage }),
+      component: Journal({ target: el, hidden: true, singleButtonNavigation }),
       icon: JournalIcon,
       title: 'Journal',
     },
@@ -59,7 +59,7 @@ export default function App({ target }) {
       component: JournalForm({
         target: el,
         hidden: true,
-        navigateToPage,
+        singleButtonNavigation,
       }),
       title: 'Journal',
     },
@@ -85,7 +85,8 @@ export default function App({ target }) {
         : navItem.component.hide()
     )
   }
-  function navigateToPage({ path }) {
+
+  function singleButtonNavigation({ path }) {
     navItems.forEach((navItem) => {
       console.log(navItem.path, path)
       navItem.path === path
