@@ -30,8 +30,6 @@ export default function Journal({
 
   let journalEntries = loadLocally('journalEntries') ?? []
 
-  console.log(journalEntries)
-
   journalEntries.reverse().forEach((journalEntry) => {
     journalCard(
       journalEntry.notes,
@@ -120,5 +118,5 @@ export default function Journal({
     el.classList.add('hidden')
   }
 
-  return { show, hide }
+  return { show, hide, journalCard }
 }
