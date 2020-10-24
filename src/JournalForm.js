@@ -6,7 +6,7 @@ import { saveLocally, loadLocally } from './handleStorage'
 export default function JournalForm({
   target,
   hidden = false,
-  navigateToPage,
+  singleButtonNavigation,
 }) {
   const el = createElement({
     type: 'main',
@@ -164,7 +164,7 @@ export default function JournalForm({
     ]
     saveLocally('journalEntries', journalEntries)
     journalForm.reset()
-    navigateToPage({ path })
+    singleButtonNavigation({ path })
   }
 
   function videoKilledTheRadioStar({
