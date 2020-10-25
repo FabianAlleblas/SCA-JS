@@ -5,7 +5,11 @@ import RatingStar from './assets/Star.svg'
 import RatingComprehension from './assets/Rectangle.svg'
 import { loadLocally } from './handleStorage'
 
-export default function Journal({ target, hidden = true, navigateToForm }) {
+export default function Journal({
+  target,
+  hidden = true,
+  singleButtonNavigation,
+}) {
   const el = createElement({
     type: 'main',
     className: 'main-scrolling p-3 grid-20',
@@ -20,16 +24,22 @@ export default function Journal({ target, hidden = true, navigateToForm }) {
     text: 'Rate Today ⭑',
     className: 'button btn-200 shadow-orange',
     target: buttonWrapper,
-    onClick: navigateToForm,
+    path: 'journal-form',
+    onClick: singleButtonNavigation,
   })
 
   let journalEntries = loadLocally('journalEntries') ?? []
 
-  console.log(journalEntries)
+  journalEntries.reverse().forEach((journalEntry) => {
+    journalCard(
+      journalEntry.notes,
+      journalEntry.motto,
+      journalEntry.rating,
+      journalEntry.comprehension
+    )
+  })
 
-  journalEntries.forEach((journalEntry) => journalCard())
-
-  function journalCard() {
+  function journalCard(journalNotes, journalMotto, journalRating, journalComp) {
     const card = createElement({
       type: 'section',
       className: 'Journal-card shadow-blue p-2',
@@ -47,46 +57,46 @@ export default function Journal({ target, hidden = true, navigateToForm }) {
       className: 'Journal-card__rating',
       target: card,
     })
-    rating.innerHTML = `
-    <li>${RatingStar}</li>
-    <li>${RatingStar}</li>
-    <li>${RatingStar}</li>
-    <li class="inactive">${RatingStar}</li>
-    <li class="inactive">${RatingStar}</li>
-    `
+
+    const journalStars = Array(5).fill()
+
+    journalStars.forEach((_, index) => {
+      const ratingItem = createElement({ type: 'li', target: rating })
+      ratingItem.innerHTML = RatingStar
+
+      index + 1 > journalRating && ratingItem.classList.add('inactive')
+    })
+
     subHeading({ text: 'Comprehension:' })
     const comprehension = createElement({
       type: 'ul',
       className: 'Journal-card__comprehension',
       target: card,
     })
-    comprehension.innerHTML = `
-    <li>${RatingComprehension}</li>
-    <li>${RatingComprehension}</li>
-    <li>${RatingComprehension}</li>
-    <li>${RatingComprehension}</li>
-    <li>${RatingComprehension}</li>
-    <li>${RatingComprehension}</li>
-    <li class="inactive">${RatingComprehension}</li>
-    <li class="inactive">${RatingComprehension}</li>
-    <li class="inactive">${RatingComprehension}</li>
-    <li class="inactive">${RatingComprehension}</li>
-    `
+
+    const compLevels = Array(10).fill()
+
+    compLevels.forEach((_, index) => {
+      const compItem = createElement({ type: 'li', target: comprehension })
+      compItem.innerHTML = RatingComprehension
+
+      index + 1 > journalComp && compItem.classList.add('inactive')
+    })
+
     subHeading({ text: 'Motto:' })
     const motto = createElement({
       type: 'p',
       className: 'Journal-card__motto',
       target: card,
     })
-    motto.textContent = "„That's life in the city“"
+    motto.textContent = journalMotto
     subHeading({ text: 'Notes:' })
     const notes = createElement({
       type: 'p',
       className: 'Journal-card__notes',
       target: card,
     })
-    notes.textContent =
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae necessitatibus iusto accusantium possimus ex vero.'
+    notes.textContent = journalNotes
 
     function subHeading({ text }) {
       const journalSubheading = createElement({
@@ -108,5 +118,5 @@ export default function Journal({ target, hidden = true, navigateToForm }) {
     el.classList.add('hidden')
   }
 
-  return { show, hide }
+  return { show, hide, journalCard }
 }
