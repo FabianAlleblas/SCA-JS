@@ -41,13 +41,6 @@ export default function renderJournalCard({ target, dashBoardMode = false }) {
   ) {
     const dateNow = Date.now()
 
-    // const dateOrDayTrying =
-    //   (dateNow - journalTimeStamp) / 1000 / 3600 <= 24
-    //     ? 'TODAY'
-    //     : (dateNow - journalTimeStamp) / 1000 / 3600 <= 48
-    //     ? 'YESTERDAY'
-    //     : journalDate
-
     const card = createElement({
       type: 'section',
       className: 'Journal-card shadow-blue p-2',
