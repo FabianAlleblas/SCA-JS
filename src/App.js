@@ -16,8 +16,10 @@ import BuddyIcon from './assets/BuddyIcon.svg'
 import TeamIcon from './assets/TeamIcon.svg'
 import JournalIcon from './assets/JournalIcon.svg'
 import EnergyIcon from './assets/EnergyIcon.svg'
+import getDate from './getDate'
 
 export default function App({ target }) {
+  const date = getDate()
   const el = createElement({ className: 'App' })
 
   const navItems = [
@@ -32,7 +34,7 @@ export default function App({ target }) {
       component: Buddy({ target: el, hidden: true }),
       icon: BuddyIcon,
       title: 'Code Buddys',
-      subtitle: 'On Monday - 18.07.2020',
+      subtitle: date.subheadingDate,
     },
     {
       path: 'teams',
